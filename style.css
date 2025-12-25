@@ -1,0 +1,185 @@
+:root {
+    --bg-color: #fdfbf7;
+    /* Soft creamy white */
+    --text-color: #4a4a4a;
+    /* Soft charcoal */
+    --accent-color: #ff8fa3;
+    /* Soft pink */
+    --accent-hover: #ff6b85;
+    --font-heading: 'Mali', cursive;
+    --font-body: 'Prompt', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    color: var(--text-color);
+    /* overflow: hidden; Removed to allow scrolling */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; Removed to allow top-down scroll */
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#welcome-screen {
+    position: fixed;
+    /* Keep welcome screen fixed */
+    top: 0;
+    justify-content: center;
+}
+
+#main-screen {
+    position: relative;
+    /* Let main screen flow */
+    opacity: 0;
+    display: none;
+    /* Initially hidden from flow */
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Button Styling */
+.btn {
+    background: white;
+    border: 2px solid var(--accent-color);
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 143, 163, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 143, 163, 0.4);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Main Content Styling */
+.content {
+    text-align: center;
+    z-index: 10;
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.msg-section {
+    min-height: 80vh;
+    /* Each section takes most of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.msg-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.padding-bottom {
+    height: 20vh;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+}
+
+.big-title {
+    font-size: 4rem;
+    color: #ff477e;
+    text-shadow: 2px 2px 0px #ffd1dc;
+}
+
+.message {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* Heart Animation Elements */
+.heart {
+    position: fixed;
+    /* Fixed so they stay on screen while scrolling */
+    bottom: -50px;
+    color: var(--accent-color);
+    opacity: 0.8;
+    pointer-events: none;
+    /* Combine vertical float with horizontal sway */
+    animation: floatUp linear forwards, sway ease-in-out infinite alternate;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes sway {
+    0% {
+        margin-left: -50px;
+    }
+
+    100% {
+        margin-left: 50px;
+    }
+}
