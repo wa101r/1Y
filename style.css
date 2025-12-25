@@ -183,3 +183,72 @@ body {
         margin-left: 50px;
     }
 }
+
+/* ===== Mobile Responsive ===== */
+@media screen and (max-width: 768px) {
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .msg-section {
+        min-height: 70vh;
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .big-title {
+        font-size: 2.5rem;
+    }
+
+    .message {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .heart {
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .msg-section {
+        min-height: 60vh;
+    }
+
+    .title {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .big-title {
+        font-size: 2rem;
+        text-shadow: 1px 1px 0px #ffd1dc;
+    }
+
+    .message {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .padding-bottom {
+        height: 10vh;
+    }
+}
